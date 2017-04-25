@@ -215,8 +215,6 @@
 \newcommand{\open}[1]{\opensd{#1}}
 
 % "placeholder" redefinition of \maketitle.
-%
-% FIXME: address and copyright (copyright just gets folded in to address).
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
 		\center{\textsc{\@title}}
@@ -225,7 +223,7 @@
 		\vspace{5in}
 		\begin{changemargin}{0in}{0in}
 			\ifthenelse{\not\isundefined{\@crightnotice}}{%
-				\copyright \@crightnotice}{}
+				\copyright\ \@crightnotice}{}
 			\par
 			\ifthenelse{\not\isundefined{\@address}}{\@address}{}
 			\par
