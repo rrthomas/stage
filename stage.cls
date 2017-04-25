@@ -172,7 +172,7 @@
 % \pause is just convenient.
 \newcommand{\pause}{\stage{Pause.}}
 
-% \initsd is a quick hack to get around messed-up \charsd spacing
+% FIXME: \initsd is a quick hack to get around messed-up \charsd spacing
 % when a \charsd comes before any dialog.
 \newcommand{\initsd}[1]{%
 	\vspace{-0.6ex}%
