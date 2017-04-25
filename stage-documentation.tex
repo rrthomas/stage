@@ -1,0 +1,175 @@
+\documentclass{report}
+
+\usepackage[utf8x]{inputenx}
+\usepackage{url}
+\usepackage{cprotect}
+
+\begin{document}
+
+\title{Using \texttt{stage.cls}}
+\author{Robert Jahrling}
+\maketitle
+
+\chapter{Introduction}
+
+Have you ever heard the adage about using the best tool for the job at hand? For writing a stage play, \LaTeX\ and \texttt{stage.cls} are probably not the best tools. They are good tools, and \LaTeX\ itself is the best tool for a variety of jobs. Playwriting is not one of them.
+
+Why have \texttt{stage.cls} then? \TeX\ produces very nice output, and while it would be arguably easier to write a play using a WYSIWYG word processor like OpenOffice.org Writer, there isn’t a program out there that would make your play look as good as \TeX\ does. There are many other reasons to use \TeX\ and \LaTeX, far too numerous to list here\,—\,I use it because it looks good.
+
+If you want to write screenplays, I suggest you look at Adrian McCarthy’s Script\TeX\footnote{http://www.aidtopia.com/software/scripttex/}. It’s a great screenplay tool, and Adrian, being much smarter than me, took care of a lot of hairy stuff that I barely understand. However, and I say this very respectfully, Script\TeX’s stage play mode is not correct\footnote{Script\TeX’s stage play mode produces scripts designed for reading, not production.}.
+
+\section{Manuscript Format}
+
+\texttt{stage.cls} is a \LaTeX2e\ class designed to produce correctly-formatted stage plays for production and for submission to literary agents and competitions. Recognize, however, that “correct” isn’t nearly as rigidly defined in the theater world as it is in Hollywood. For the stage, it is usually sufficient that your script look good\,—\,nobody will be holding a ruler to your manuscript.
+
+The formatting that I follow for stage.cls is based on the formatting rules found at Virginia Commonwealth University’s website, The Playwriting Seminars, at \url{http://www.pubinfo.vcu.edu/artweb/playwriting/}. In brief:
+
+\begin{itemize}
+\item Top and left margins are set at 1.5 inches.
+\item Bottom and right margins are set at 1 inch.
+\item Page numbers are set 1 inch from the top and right.
+\item Character names are indented 4 inches, not centered.
+\item Opening stage directions are indented 4 inches.
+\item Other stage directions are indent 3.5 inches.
+\item The text is set at 12\textbackslash 14.
+\end{itemize}
+
+\section{\LaTeX\ information}
+
+This document isn’t intended to be an introduction to \LaTeX. For more information on using and installing \LaTeX, please visit the \LaTeX\ project website at \url{http://www.latex-project.org}.
+
+This is a standard \LaTeX2e\ class, and can be installed in the usual way. For more information on what exactly “the usual way” is, visit the CTAN archive at \url{http://www.ctan.org}. You can also review the documentation for your particular \TeX\ package.
+
+\section{Playwriting Information}
+
+There are a few resources that I would recommend to anyone who wants to write plays.
+
+\subsection{The Theater}
+
+The most important thing you can do, as a playwright, is to go see plays. Your local theater groups are putting on plays right now. It’s not terribly expensive, and it gives you an insight into what’s going on in theater, what works and what doesn’t, and what’s possible. I’m not going to get highbrow on you, either. If all you’ve got is a ”Grease” revival at the dinner theater on Route 10, go see it.
+
+If you live in a city, even a small one, I guarantee you there are groups out there putting on shows. If you have no money but lots of time, volunteer to be tech crew. You get to see the play over and over again, and a good idea of how theater works.
+
+\subsection{Reading Plays}
+The second most important thing you can do as a playwright is to go to the library. Plays are found in the nonfiction section, in and around the low 800s in any Dewey Decimal-oriented library. It doesn’t even matter what you read, as long as you read it. If Shakespeare is your thing, read Shakespeare. If Wally Shawn is more to your taste, read Wally Shawn. Just read. Close your eyes and reach out and grab a play or five and read them, regardless of what they are. Some people will tell you to stick to acknowledged classics. Not me. Read everything.
+
+\subsection{Books on Playwriting}
+
+There are many, many good books on writing plays. I have a couple of recommendations, but these are by no means the only books you’ll want to look at.
+
+Spencer, Stuart. \emph{The Playwright’s Guidebook: An Insightful Primer on the Art of Dramatic Writing.} Faber \& Faber, 2002. Ayckbourn, Alan. \emph{The Crafty Art of Playmaking.} Palgrave Macmillan, 2003.
+
+\subsection{Playwriting Websites}
+As with books, there are many websites on writing plays. I like the aforementioned Playwriting Seminars at \url{http://www.pubinfo.vcu.edu/artweb/playwriting/}.
+
+\section{Licensing}
+
+\texttt{stage.cls} is distributed under the provisions of the \LaTeX\ Project Public License, a copy of which is available at \url{http://www.latex-project.org/lppl.txt}.
+
+\chapter{\texttt{stage.cls} Functions}
+
+\texttt{stage.cls} is based on the default \LaTeX\ book class, using the \texttt{12pt}, and \texttt{oneside} options. Other options can be supplied if desired to the \verb|\documentclass| command.
+
+Any documents made to use \texttt{stage.cls} need to begin with a \verb|\documentclass{stage}| declaration.
+
+\section{Title Page}
+In addition to the standard \LaTeX\ title page information, \texttt{stage.cls} provides some additional capabilities for play manuscripts. These commands all come after the document class declaration and before \maketitle. They are all optional.
+
+\cprotect\subsection{\verb|\address{<address>}|}
+\verb|\address| blocks your address on the lower left of the title page. Separate multiple lines with \verb|\\|. It is appropriate to put any relevant contact information in this block, including phone numbers and email addresses.
+
+\cprotect\subsection{\verb|\copyrightnotice{<copyright information>}|}
+\verb|\copyrightnotice| places copyright information, including the copyright symbol, above the address block. Note that most books on writing warn you \emph{not} to place copyright notices on submissions. This command is available to you should you choose to ignore that advice.
+
+\cprotect\subsection{\verb|\draft{<draft #>}|}
+
+\verb|\draft| places draft number information below the address block. Note that most books on writing warn you \emph{not} to place draft numbers on submissions, but rather to present your work as though it sprang Athena-like from your head. This command is available to you should you choose to ignore that advice.
+
+\section{Cast Page}
+To create a page for your cast of characters, use the \texttt{castpage} environment. To set up the environment, use \verb|\begin{castpage}|. When you are done adding characters, use \verb|\end{castpage}|.
+
+\cprotect\subsection{\verb|\addcharacter{<name>}{<description>}|}
+Use \verb|\addcharacter| to add characters to the cast page.
+
+\section{Quote Page}
+
+You may wish to place a quote at the front of your play to set the mood or give inspiration.
+
+\cprotect\subsection{\verb|\quotepage{<quote>}{<author>}|}
+
+\section{Page Matter}
+
+\cprotect\subsection[\verb|\act| \verb|\oneact|]{\verb|\act|\\\verb|\oneact|}
+
+If you are numbering acts, use \verb|\act| before each act to place act headers. Acts are numbered with uppercase Roman numerals. If you are writing a short, one-act play, use \verb|\oneact| instead. This affects pagination: one-acts just use page numbers, while longer works number the pages by act.
+
+\cprotect\subsection[\verb|\dialog{<character>}{<speech>}| \verb|\dialogue{<character>}{<speech>}|]{\verb|\dialog{<character>}{<speech>}|\\\verb|\dialogue{<character>}{<speech>}|}
+
+\verb|\dialog| sets off speeches with the appropriate formatting. Dialogue across page breaks will lead with the character’s name and “(Continued)”. Two spellings are provided for the sake of convenience, but they work identically.
+
+It may be convenient for you to define macros in your scripts to set up dialogue tags for each character to reduce typing. For example, if you use \verb|\def\Bob{\dialog{Bob}}|, you can set off Bob’s dialogue in your play by simply typing \verb|\Bob{<dialog>}|.
+
+\cprotect\subsection{\verb|\introduce{<character>}|}
+
+This command sets the character’s name in smallcaps when they are first introduced in stage directions.
+
+\cprotect\subsection{\verb|\pause|}
+
+Provided for convenience, this inserts a (Pause) stage direction for those of us who overuse them.
+
+\cprotect\subsection{\verb|\scene|}
+
+If you are numbering scenes, use \verb|\scene| before each scene to place scene headers. Scene headers use Arabic numbers.
+
+\cprotect\subsection[\verb|\charsd{<direction>}| \verb|\initsd{<direction>}| \verb|\opensd{<direction>}| \verb|\open{<direction>}| \verb|\stage{<direction>}|]{\verb|\charsd{<direction>}|\\\verb|\initsd{<direction>}|\\\verb|\opensd{<direction>}|\\\verb|\open{<direction>}|\\\verb|\stage{<direction>}|}
+
+There are several different commands for stage directions; which one you use depends on the circumstances. The stage directions that open your play, describe the stage and the setting, are indented slightly differently from other stage directions. For these, use \verb|\opensd| or its synonym, \verb|\open|.
+
+Use \verb|\stage| for inter-dialogue stage directions.
+
+Use \verb|\initsd| for character stage directions given before (or in place of) dialogue.
+
+Use \verb|\charsd| for intra-dialogue stage directions.
+
+\chapter{Putting It All Together}
+
+Here is a script template formatted with \LaTeX\ and \texttt{stage.cls}. It should provide you with an idea of how to use \texttt{stage.cls}.
+
+\begin{verbatim}
+\documentclass{stage}
+
+\title{}
+\author{}
+
+%%% The following items are optional. Uncomment to use.
+% \address{}
+% \copyrightnotice{}
+% \draft{}
+
+\begin{document}
+
+\maketitle
+
+%%% Uncomment the following line to add a quote page.
+% \quotepage{Quote}{Author}
+
+%%% Uncomment the next few lines to add a cast page.
+% \begin{castpage}
+%
+\addcharacter{Name}{Description}
+%
+% \end{castpage}
+
+% The magic happens here...
+%
+% \act
+% \scene
+% \opensd{Opening stage directions.}
+% \dialog{who}{what}
+
+\end{document}
+\end{verbatim}
+
+If you have any questions on \texttt{stage.cls}, please feel free to contact the maintainer at \url{rrt@sc3d.org}.
+
+\end{document}
