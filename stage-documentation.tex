@@ -73,20 +73,22 @@ As with books, there are many websites on writing plays. I like the aforemention
 Any documents made to use \texttt{stage.cls} need to begin with a \verb|\documentclass{stage}| declaration.
 
 \section{Title Page}
+
 In addition to the standard \LaTeX\ title page information, \texttt{stage.cls} provides some additional capabilities for play manuscripts. These commands all come after the document class declaration and before \maketitle. They are all optional.
 
 \cprotect\subsection{\verb|\address{<address>}|}
 \verb|\address| blocks your address on the lower left of the title page. Separate multiple lines with \verb|\\|. It is appropriate to put any relevant contact information in this block, including phone numbers and email addresses.
 
 \section{Cast Page}
-To create a page for your cast of characters, use the \texttt{castpage} environment. To set up the environment, use \verb|\begin{castpage}|. When you are done adding characters, use \verb|\end{castpage}|.
+
+To create a page for your cast of characters, use the \texttt{castpage} environment. To set up the environment, use \verb|\begin{castpage}|. When you are done adding characters, use \verb|\end{castpage}|. This page must come after the title page.
 
 \cprotect\subsection{\verb|\addcharacter{<name>}{<description>}|}
 Use \verb|\addcharacter| to add characters to the cast page.
 
 \section{Quote Page}
 
-You may wish to place a quote at the front of your play to set the mood or give inspiration.
+You may wish to place a quote at the front of your play to set the mood or give inspiration. This must come after the title page.
 
 \cprotect\subsection{\verb|\quotepage{<quote>}{<author>}|}
 

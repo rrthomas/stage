@@ -22,10 +22,6 @@
 %   Fix Margins
 %   Fix Widows/Orphans
 %
-% NOTES:
-%	\castpage and \quotepage definitions must come after \maketitle
-%		in any documents created with this class.
-%
 % TODO:
 %	Time/setting page
 %	Character s.d. spacing is not the greatest.
