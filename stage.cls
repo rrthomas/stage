@@ -210,17 +210,6 @@
 	\setcounter{page}{1}
 }
 
-\newcommand{\quotepage}[2]{%
-	\thispagestyle{empty}
-	\begin{quote}
-	\end{quote}
-	\begin{quote}
-		\vspace{1in}
-		#1\par\emph{#2}
-	\end{quote}
-	\setcounter{page}{0}
-	\newpage
-}
 % The castpage environment sets up the cast page
 \newenvironment{castpage}{%
 	\thispagestyle{empty}%
