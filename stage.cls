@@ -25,8 +25,6 @@
 % NOTES:
 %	\castpage and \quotepage definitions must come after \maketitle
 %		in any documents created with this class.
-%	\act MUST appear or else page numbers get whacked. This should
-%		be considered a TODO bugfix. Can be fixed by using \oneact.
 %
 % TODO:
 %	Time/setting page
@@ -102,13 +100,7 @@
 % pagestyle and headers
 % \thepage does page numbering.
 %
-\renewcommand{\thepage}{\Roman{actcounter}-\arabic{page}}
-% If we're writing a one-act play, we don't need the special page
-% numbering scheme, so we tell stage that we're writing a one-act
-% and it takes care of that.
-\newcommand{\oneact}{%
-		\renewcommand{\thepage}{\arabic{page}}%
-}
+%\renewcommand{\thepage}{\arabic{page}}%
 
 % Counts scenes per act
 \newcounter{scenecounter}[actcounter]
@@ -140,6 +132,7 @@
 %
 % Start a new page for each Act except the first
 \newcommand{\act}{%
+  \renewcommand{\thepage}{\Roman{actcounter}-\arabic{page}}%
 	\begin{changemargin}{2.5in}{0in}
 		\ifthenelse{\value{actcounter} > 1}{\newpage}{}
 		\ifthenelse{\value{actcounter} = 1}{\doublespace}{}
