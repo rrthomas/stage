@@ -6,23 +6,23 @@
 
 \begin{document}
 
-\title{Using \texttt{stage.cls}}
+\title{Using \texttt{stage}}
 \author{Robert Jahrling}
 \maketitle
 
 \chapter{Introduction}
 
-Have you ever heard the adage about using the best tool for the job at hand? For writing a stage play, \LaTeX\ and \texttt{stage.cls} are probably not the best tools. They are good tools, and \LaTeX\ itself is the best tool for a variety of jobs. Playwriting is not one of them.
+Have you ever heard the adage about using the best tool for the job at hand? For writing a stage play, \LaTeX\ and \texttt{stage} are probably not the best tools. They are good tools, and \LaTeX\ itself is the best tool for a variety of jobs. Playwriting is not one of them.
 
-Why have \texttt{stage.cls} then? \TeX\ produces very nice output, and while it would be arguably easier to write a play using a WYSIWYG word processor like OpenOffice.org Writer, there isn’t a program out there that would make your play look as good as \TeX\ does. There are many other reasons to use \TeX\ and \LaTeX, far too numerous to list here\,—\,I use it because it looks good.
+Why have \texttt{stage} then? \TeX\ produces very nice output, and while it would be arguably easier to write a play using a WYSIWYG word processor like OpenOffice.org Writer, there isn’t a program out there that would make your play look as good as \TeX\ does. There are many other reasons to use \TeX\ and \LaTeX, far too numerous to list here\,—\,I use it because it looks good.
 
 If you want to write screenplays, I suggest you look at Adrian McCarthy’s Script\TeX\footnote{http://www.aidtopia.com/software/scripttex/}. It’s a great screenplay tool, and Adrian, being much smarter than me, took care of a lot of hairy stuff that I barely understand. However, and I say this very respectfully, Script\TeX’s stage play mode is not correct\footnote{Script\TeX’s stage play mode produces scripts designed for reading, not production.}.
 
 \section{Manuscript Format}
 
-\texttt{stage.cls} is a \LaTeX2e\ class designed to produce correctly-formatted stage plays for production and for submission to literary agents and competitions. Recognize, however, that “correct” isn’t nearly as rigidly defined in the theater world as it is in Hollywood. For the stage, it is usually sufficient that your script look good\,—\,nobody will be holding a ruler to your manuscript.
+\texttt{stage} is a \LaTeX2e\ class designed to produce correctly-formatted stage plays for production and for submission to literary agents and competitions. Recognize, however, that “correct” isn’t nearly as rigidly defined in the theater world as it is in Hollywood. For the stage, it is usually sufficient that your script look good\,—\,nobody will be holding a ruler to your manuscript.
 
-The formatting that I follow for stage.cls is based on the formatting rules found at Virginia Commonwealth University’s website, The Playwriting Seminars, at \url{http://www.pubinfo.vcu.edu/artweb/playwriting/}. In brief:
+The formatting that I follow for stage is based on the formatting rules found at Virginia Commonwealth University’s website, The Playwriting Seminars, at \url{http://www.pubinfo.vcu.edu/artweb/playwriting/}. In brief:
 
 \begin{itemize}
 \item Top and left margins are set at 1.5 inches.
@@ -64,17 +64,17 @@ As with books, there are many websites on writing plays. I like the aforemention
 
 \section{Licensing}
 
-\texttt{stage.cls} is distributed under the provisions of the \LaTeX\ Project Public License, a copy of which is available at \url{http://www.latex-project.org/lppl.txt}.
+\texttt{stage} is distributed under the provisions of the \LaTeX\ Project Public License, a copy of which is available at \url{http://www.latex-project.org/lppl.txt}.
 
-\chapter{\texttt{stage.cls} Functions}
+\chapter{\texttt{stage} Functions}
 
-\texttt{stage.cls} is based on the default \LaTeX\ book class, using the \texttt{12pt}, and \texttt{oneside} options. Other options can be supplied if desired to the \verb|\documentclass| command.
+\texttt{stage} is based on the default \LaTeX\ book class, using the \texttt{12pt}, and \texttt{oneside} options. Other options can be supplied if desired to the \verb|\documentclass| command.
 
-Any documents made to use \texttt{stage.cls} need to begin with a \verb|\documentclass{stage}| declaration.
+Any documents made to use \texttt{stage} need to begin with a \verb|\documentclass{stage}| declaration.
 
 \section{Title Page}
 
-In addition to the standard \LaTeX\ title page information, \texttt{stage.cls} provides some additional capabilities for play manuscripts. These commands all come after the document class declaration and before \maketitle. They are all optional.
+In addition to the standard \LaTeX\ title page information, \texttt{stage} provides some additional capabilities for play manuscripts. These commands all come after the document class declaration and before \maketitle. They are all optional.
 
 \cprotect\subsection{\verb|\address{<address>}|}
 \verb|\address| blocks your address on the lower left of the title page. Separate multiple lines with \verb|\\|. It is appropriate to put any relevant contact information in this block, including phone numbers and email addresses.
@@ -122,7 +122,7 @@ Use \verb|\charsd| for intra-dialogue stage directions.
 
 \chapter{Putting It All Together}
 
-Here is a script template formatted with \LaTeX\ and \texttt{stage.cls}. It should provide you with an idea of how to use \texttt{stage.cls}.
+Here is a script template formatted with \LaTeX\ and \texttt{stage}. It should provide you with an idea of how to use \texttt{stage}.
 
 \begin{verbatim}
 \documentclass{stage}
@@ -159,6 +159,6 @@ Here is a script template formatted with \LaTeX\ and \texttt{stage.cls}. It shou
 \end{document}
 \end{verbatim}
 
-If you have any questions on \texttt{stage.cls}, please feel free to contact the maintainer at \url{rrt@sc3d.org}.
+If you have any questions on \texttt{stage}, please feel free to contact the maintainer at \url{rrt@sc3d.org}.
 
 \end{document}
