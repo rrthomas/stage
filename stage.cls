@@ -1,5 +1,6 @@
 %% stage.cls
 %% Copyright 2005 Robert Jahrling
+%% Copyright 2017 Reuben Thomas
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -11,11 +12,11 @@
 %
 % This work has the LPPL maintenance status "maintained".
 % 
-% This Current Maintainer of this work is Robert Jahrling
+% This Current Maintainer of this work is Reuben Thomas
 %
 % This work consists of the file stage.cls.
 %
-% Contact me at jahrling@chorus.net
+% See https://github.com/rrthomas/stage or contact me at rrt@sc3d.org
 %
 % I'd love to hear if or how people are using this! What do you
 % think of the "warts-and-all" approach I took? I left in all the
