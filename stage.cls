@@ -61,7 +61,6 @@
 
 %%% Locale-dependent strings
 \newcommand{\continuedname}{Continued}
-\newcommand{\draftname}{DRAFT}
 \newcommand{\castname}{Cast of Characters}
 \newcommand{\theendname}{The End}
 
@@ -94,12 +93,8 @@
 \newcommand{\doublespace}{\vspace{\doublespacelength}}
 % \introduce is used the first time we meet a character.
 \newcommand{\introduce}[1]{\textsc{#1}}
-% \address is used for the writer's copyright notice and address
+% \address is used for the writer's address
 \newcommand{\address}[1]{\gdef\@address{#1}}
-% \draft is used if the writer wants to indicate draft number
-\newcommand{\draft}[1]{\gdef\@draftno{#1}}
-% \copyrightnotice is used if the writer wants to indicate copyright
-\newcommand{\copyrightnotice}[1]{\gdef\@crightnotice{#1}}
 % Counts acts
 \newcounter{actcounter}
 % We need to initialize actcounter for page numbering.
@@ -220,12 +215,7 @@
 		\center{\@author}
 		\vspace{5in}
 		\begin{changemargin}{0in}{0in}
-			\ifthenelse{\not\isundefined{\@crightnotice}}{%
-				\copyright\ \@crightnotice}{}
-			\par
 			\ifthenelse{\not\isundefined{\@address}}{\@address}{}
-			\par
-			\ifthenelse{\not\isundefined{\@draftno}}{\draftname \@draftno}{}
 		\end{changemargin}
 	\end{titlepage}
 	\setcounter{page}{1}
