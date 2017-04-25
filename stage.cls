@@ -102,27 +102,16 @@
 % Counts acts
 \newcounter{actcounter}
 % We need to initialize actcounter for page numbering.
-\setcounter{actcounter}{1}
+\setcounter{actcounter}{0}
 % pagestyle and headers
 % \thepage does page numbering.
 %
-% FIXME: this is incredibly ugly. For some reason, acts were not being
-% numbered from 1, so I needed to initialize actcounter to 1.
-% This had a side effect of making the use of actcounter in the
-% headers off by 1, so we need to subtract 1 from the counter,
-% print the page number, and add the 1 back in.
-\renewcommand{\thepage}{%
-		\addtocounter{actcounter}{-1}%
-		\Roman{actcounter}-\arabic{page}%
-		\addtocounter{actcounter}{1}%
-}
+\renewcommand{\thepage}{\Roman{actcounter}-\arabic{page}}
 % If we're writing a one-act play, we don't need the special page
 % numbering scheme, so we tell stage that we're writing a one-act
 % and it takes care of that.
 \newcommand{\oneact}{%
-		\renewcommand{\thepage}{%
-			\arabic{page}%
-		}%
+		\renewcommand{\thepage}{\arabic{page}}%
 }
 
 % Counts scenes per act
@@ -160,9 +149,9 @@
 \newcommand{\act}{%
 	\begin{changemargin}{2.5in}{0in}
 		\ifthenelse{\value{actcounter} > 1}{\newpage}{}
-		\textsc{Act} \Roman{actcounter}
 		\ifthenelse{\value{actcounter} = 1}{\doublespace}{}
 		\stepcounter{actcounter}
+		\textsc{Act} \Roman{actcounter}
 	\end{changemargin}
 	\setcounter{page}{1}
 }
