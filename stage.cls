@@ -40,19 +40,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{stage}[2003/05/15 Manuscript Format for stage plays]
 % The class is based on the default book class
-\LoadClass[12pt,oneside,letterpaper]{book}
+\LoadClass[12pt,oneside]{book}
+\PassOptionsToClass{\CurrentOption}{book}
 % We're going to use ifthen to do some conditional page breaking.
 \RequirePackage{ifthen}
 \RequirePackage{fancyhdr}
 \RequirePackage{extramarks}
-% We provide a friendly warning when an option is specified;
-% since stage provides no options, all options return an error.
-% FIXME: Pass class options through to book
-\DeclareOption*{%
-	\ClassWarning{stage}{Unknown option `\CurrentOption'}%
-}
-% Required to process options.
-\ProcessOptions\relax
 % These three commands are required.
 % The default font size is 12/14. It looks better than 12 solid.
 % The textwidth and textheight represent one-inch margins all
