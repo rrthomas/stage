@@ -18,10 +18,6 @@
 %
 % See https://github.com/rrthomas/stage or contact me at rrt@sc3d.org
 %
-% I'd love to hear if or how people are using this! What do you
-% think of the "warts-and-all" approach I took? I left in all the
-% changes I made, and the stuff I didn't like (commented out).
-%
 % CHANGES NEEDED 5/16/2003:
 %   Fix Margins
 %   Fix Widows/Orphans
@@ -43,9 +39,7 @@
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{stage}[2003/05/15 Manuscript Format for stage plays]
-% The class is based on the default book class; since this
-% is so far a personal project, I am defaulting to letter
-% paper.
+% The class is based on the default book class
 \LoadClass[12pt,oneside,letterpaper]{book}
 % We're going to use ifthen to do some conditional page breaking.
 \RequirePackage{ifthen}
@@ -53,6 +47,7 @@
 \RequirePackage{extramarks}
 % We provide a friendly warning when an option is specified;
 % since stage provides no options, all options return an error.
+% FIXME: Pass class options through to book
 \DeclareOption*{%
 	\ClassWarning{stage}{Unknown option `\CurrentOption'}%
 }
@@ -91,7 +86,6 @@
 
 % No indentation. Double space between paragraphs.
 \parindent 0pt
-% \parskip 1.6ex
 \parskip 0pt
 % \doublespace leaves a line's worth of space between elements.
 \newcommand{\doublespace}{\vspace{1.6ex}}
@@ -108,11 +102,9 @@
 % We need to initialize actcounter for page numbering.
 \setcounter{actcounter}{1}
 % pagestyle and headers
-% 6/10/03 removed myheadings in favor of fancyhdr
-% \pagestyle{myheadings}
 % \thepage does page numbering.
 %
-% Yes, this is incredibly ugly. For some reason, acts were not being
+% FIXME: this is incredibly ugly. For some reason, acts were not being
 % numbered from 1, so I needed to initialize actcounter to 1.
 % This had a side effect of making the use of actcounter in the
 % headers off by 1, so we need to subtract 1 from the counter,
@@ -145,16 +137,8 @@
 		}%
 	\item[]}{\end{list}}
 % \dialog sets the character's name above his speech
-% Still need to figure out how to keep name and speech together,
+% FIXME: figure out how to keep name and speech together,
 % i.e. not allow pagebreaks between name and speech.
-% \newcommand{\dialog}[1]{%
-% 	\doublespace
-% 	% \parskip 1.6ex
-%  	\begin{changemargin}{2.5in}{0in}
-%  		\textsc{#1}%
-%  	\end{changemargin}
-%  	\vspace{-0.9ex}
-% }
 \newcommand{\dialog}[2]{%
 	\doublespace%
 	\hskip 2.5in\textsc{#1}\par%
@@ -179,7 +163,6 @@
 		\stepcounter{actcounter}
 	\end{changemargin}
 	\setcounter{page}{1}
-%	\doublespace
 }
 % \scene creates a scene header, with arabic numerals
 %
@@ -201,7 +184,6 @@
 \newcommand{\stage}[1]{%
 	\doublespace
 	\begin{changemargin}{2in}{0in}
-		% \extramarks{}{(more)}%
 		(#1)%
 	\end{changemargin}
 }
@@ -209,12 +191,9 @@
 % stage directions. It's intended to set properly into a passage
 % of dialog.
 \newcommand{\charsd}[1]{%
-	% \parskip 0pt
 	\begin{changemargin}{2in}{0in}
-		% \vspace{0.8ex}%
 		(#1)%
 	\end{changemargin}
-	% \parskip 0pt
 }
 
 % \pause is just convenient.
@@ -246,8 +225,7 @@
 
 % "placeholder" redefinition of \maketitle.
 %
-% TODO: address and copyright
-% 5/19/2003: done, but copyright just gets folded in to address.
+% FIXME: address and copyright (copyright just gets folded in to address).
 \renewcommand{\maketitle}{%
 	\begin{titlepage}
 		\center{\textsc{\@title}}
