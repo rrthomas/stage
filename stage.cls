@@ -46,6 +46,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{fancyhdr}
 \RequirePackage{extramarks}
+\RequirePackage{needspace}
 % These three commands are required.
 % The default font size is 12/14. It looks better than 12 solid.
 % The textwidth and textheight represent one-inch margins all
@@ -127,17 +128,14 @@
 		\setlength{\parsep}{\parskip}%
 		}%
 	\item[]}{\end{list}}
-% \dialog sets the character's name above his speech
-% FIXME: figure out how to keep name and speech together,
-% i.e. not allow pagebreaks between name and speech.
+% \dialog sets the character's name above their speech
 \newcommand{\dialog}[2]{%
-	\doublespace%
-	\hskip 2.5in\textsc{#1}\par%
-	\nobreak
-	\extramarks{}{}
-	\nobreak
-	#2
-	\extramarks{\textsc{#1} (\continuedname)}{}
+  \doublespace%
+  \needspace{2\baselineskip}
+  \hskip 2.5in\textsc{#1}\par%
+  \extramarks{}{}
+  #2
+  \extramarks{\textsc{#1} (\continuedname)}{}
 }
 
 % \dialogue, for people who like that spelling better
