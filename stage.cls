@@ -109,15 +109,16 @@
 		\setlength{\listparindent}{\parindent}%
 		\setlength{\itemindent}{\parindent}%
 		\setlength{\parsep}{\parskip}%
+		\setlength{\partopsep}{0pt}%
 		}%
 	\item[]}{\end{list}}
 % \dialog sets the character's name above their speech
 \newcommand{\dialog}[2]{%
   \doublespace%
-  \needspace{2\baselineskip}
-  \hskip 2.5in\textsc{#1}\par%
-  \extramarks{}{}
-  #2
+  \needspace{2\baselineskip}%
+  \begin{changemargin}{2.5in}{0in}\textsc{#1}\end{changemargin}%
+  \extramarks{}{}%
+  #2%
   \extramarks{\textsc{#1} (\continuedname)}{}
 }
 
@@ -164,24 +165,12 @@
 % stage directions. It's intended to set properly into a passage
 % of dialog.
 \newcommand{\charsd}[1]{%
-	\begin{changemargin}{2in}{0in}
+	\begin{changemargin}{2in}{0in}%
 		(#1)%
-	\end{changemargin}
-}
+	\end{changemargin}}
 
 % \pause is just convenient.
 \newcommand{\pause}{\stage{Pause.}}
-
-% FIXME: \initsd is a quick hack to get around messed-up \charsd spacing
-% when a \charsd comes before any dialog.
-\newcommand{\initsd}[1]{%
-	\vspace{-0.6ex}%
-	\begin{changemargin}{2in}{0in}
-		(#1)%
-	\end{changemargin}
-	\parskip 0pt
-	\vspace{-0.6ex}
-}
 
 % Implemented \paren to ease transition from ScriptTeX
 \newcommand{\paren}[1]{\charsd{#1}}
