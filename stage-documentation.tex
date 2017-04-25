@@ -3,6 +3,7 @@
 \usepackage[utf8x]{inputenx}
 \usepackage{url}
 \usepackage{cprotect}
+\usepackage[Q=yes]{examplep}
 
 \begin{document}
 
@@ -119,6 +120,25 @@ Use \verb|\stage| for inter-dialogue stage directions.
 Use \verb|\initsd| for character stage directions given before (or in place of) dialogue.
 
 Use \verb|\charsd| for intra-dialogue stage directions.
+
+\section{Translation and customization}
+
+If you want to use \texttt{stage} in another language, or want to customize any of the text it outputs automatically (for example, perhaps you want your script to finish “Finis” rather than “The End”), then you can redefine the corresponding command. For example:
+
+\begin{verbatim}
+\renewcommand{\theendname}{Finis}
+\end{verbatim}
+
+The commands correspond to the following messages:
+
+\begin{description}
+  \item[\Q{\\continuedname}]Used when dialog is continued over a page break.
+  \item[\Q{\\castname}]The title of the cast list.
+  \item[\Q{\\theendname}]The text written at the end of the script.
+\end{description}
+
+If you translate the set into another language, do send the translations to the maintainer, so that they can be included in a future release of \texttt{stage}.
+
 
 \chapter{Putting It All Together}
 
