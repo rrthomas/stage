@@ -26,87 +26,11 @@
 %   Fix Margins
 %   Fix Widows/Orphans
 %
-% Changes 5/17/2003:
-%
-%	Added counters for acts.
-% 	Added counters for scenes.
-%	Added comments and TODOs.
-%
-% Changes 5/18/2003:
-%
-%	Correctly break pages for scenes.
-%	Changed \dialog to be the way I wanted.
-%   ...which entailed fixing up some spacing.
-%	...which entailed removing more \doublespace commands.
-%	Added \paren as alias for \charsd for ScriptTeX compatibility.
-%
-% Changes 5/19/2003:
-%
-%	Added \address command for \maketitle.
-%	Added \opensd command (and \open).
-%	Added \quotepage.
-%
-% Changes 5/20/2003:
-%
-%	Added \castpage environment
-%	Added \addcharacter command
-%	Correct page numbering, <Act>-<page>
-%	Removed old (commented-out) \dialog command
-%	Deleted commented-out \doublespaces
-%	Added \dialogue as implementation of \dialog
-%	Added \AtEndDocument to print "The End" at the end of the document
-%
-% Changes 5/25/20003:
-%
-%	Still monkeying with spacing
-%	Added \oneact command for one-act plays.
-%
-% Changes 6/5/2003:
-%
-%	Got spacing looking pretty good. Still not entirely happy.
-%
-% Changes 6/10/2003:
-%
-%	Reorganized \dialog command to remove the use of the 
-%		changemargin environment. Requires adjustment to use of
-%		\dialog in scripts, but the tradeoff is worth it,
-%		because the tradeoff is...
-%	PROPER CONTINUED MARKS. Added use of fancyhdr to create
-%		a continued mark for interrupted dialog and a more mark
-%		for interrupted stage directions.
-%
-% Changes 6/11/2003:
-%
-%	Changed \lhead to set the text at the top left corner of
-%		the picture box. As it stood, it was right-aligning,
-%		which threw alignment off.
-%	Break problem POSSIBLY solved. Must experiment.
-%
-% Changes 6/12/2003:
-%
-%	Removed \extramarks from stage directions. Was having problem
-%		with pages having extra marks where none were needed, mostly
-%		when a stage direction was the last thing on the page and
-%		was complete.
-%	Added \copyrightnotice to separate copyright notice from the
-%		address block. Use is completely optional. stage will ignore
-%		its absence (unlike LaTeX and \author, for example).
-%	Added \draft to indicate draft number. Also completely optional;
-%		stage will ignore its absence.
-%	Changed \maketitle to reflect the aforementioned new additions.
-%	Added \pause.
-%
-% Changes 2/17/05:
-%
-%	Added LPPL license notice. Per C.-E. Pfeiler's suggestion,
-%		I'll be uploading stage.cls to CTAN.
-%
 % NOTES:
 %	\castpage and \quotepage definitions must come after \maketitle
 %		in any documents created with this class.
 %	\act MUST appear or else page numbers get whacked. This should
 %		be considered a TODO bugfix. Can be fixed by using \oneact.
-%	As of 6/10, we're back to \dialog{speaker}{speech}.
 %
 % TODO:
 %	Time/setting page
