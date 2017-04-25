@@ -87,8 +87,10 @@
 % No indentation. Double space between paragraphs.
 \parindent 0pt
 \parskip 0pt
+\newlength{\doublespacelength}
+\setlength{\doublespacelength}{1.6ex}
 % \doublespace leaves a line's worth of space between elements.
-\newcommand{\doublespace}{\vspace{1.6ex}}
+\newcommand{\doublespace}{\vspace{\doublespacelength}}
 % \introduce is used the first time we meet a character.
 \newcommand{\introduce}[1]{\textsc{#1}}
 % \address is used for the writer's copyright notice and address
@@ -259,7 +261,7 @@
 \newenvironment{castpage}{%
 	\thispagestyle{empty}%
 	\center{\textsc{Cast of Characters}}%
-	\doublespace%
+	\vspace{3ex}%
 	\begin{changemargin}{0in}{0.5in}%
 	}{%
 	\end{changemargin}%
@@ -267,13 +269,10 @@
 	\newpage%
 }
 % \addcharacter adds characters to the cast page.
-% NOTE: There must be a blank line between \addcharacter commands
-% in the LaTeX source!
 \newcommand{\addcharacter}[2]{%
 	\begin{tabular}[2]{p{2in} p{4in}}
-		\textsc{#1} & #2
+		\textsc{#1} & #2\\[\doublespacelength]
 	\end{tabular}
-	\doublespace
 }
 % Print "The End" at the end of the document.
 \AtEndDocument{%
