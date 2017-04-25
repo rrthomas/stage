@@ -64,6 +64,13 @@
 
 \raggedbottom
 
+
+%%% Locale-dependent strings
+\newcommand{\continuedname}{Continued}
+\newcommand{\draftname}{DRAFT}
+\newcommand{\castname}{Cast of Characters}
+\newcommand{\theendname}{The End}
+
 %%% pagestyle commands
 % use fancy pagestyle
 \pagestyle{fancy}
@@ -148,7 +155,7 @@
 	\extramarks{}{}
 	\nobreak
 	#2
-	\extramarks{\textsc{#1} (Continued)}{}
+	\extramarks{\textsc{#1} (\continuedname)}{}
 }
 
 % \dialogue, for people who like that spelling better
@@ -240,7 +247,7 @@
 			\par
 			\ifthenelse{\not\isundefined{\@address}}{\@address}{}
 			\par
-			\ifthenelse{\not\isundefined{\@draftno}}{DRAFT \@draftno}{}
+			\ifthenelse{\not\isundefined{\@draftno}}{\draftname \@draftno}{}
 		\end{changemargin}
 	\end{titlepage}
 	\setcounter{page}{1}
@@ -252,7 +259,7 @@
 	\end{quote}
 	\begin{quote}
 		\vspace{1in}
-		``#1''\par\emph{#2}
+		#1\par\emph{#2}
 	\end{quote}
 	\setcounter{page}{0}
 	\newpage
@@ -260,7 +267,7 @@
 % The castpage environment sets up the cast page
 \newenvironment{castpage}{%
 	\thispagestyle{empty}%
-	\center{\textsc{Cast of Characters}}%
+	\center{\textsc{\castname}}%
 	\vspace{3ex}%
 	\begin{changemargin}{0in}{0.5in}%
 	}{%
@@ -274,9 +281,9 @@
 		\textsc{#1} & #2\\[\doublespacelength]
 	\end{tabular}
 }
-% Print "The End" at the end of the document.
+% Mark the end of the document.
 \AtEndDocument{%
 		\doublespace %
 		\hskip 2.5in %
-		\textsc{The End}%
+		\textsc{\theendname}%
 }
