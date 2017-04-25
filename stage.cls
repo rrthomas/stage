@@ -162,7 +162,7 @@
 	\extramarks{}{}
 	\nobreak
 	#2
-	\extramarks{\textsc{#1}(Continued)}{}
+	\extramarks{\textsc{#1} (Continued)}{}
 }
 
 % \dialogue, for people who like that spelling better
