@@ -53,7 +53,9 @@
 \raggedbottom
 
 
-%%% Locale-dependent strings
+%%% Customizable strings (Note: keep in sync with the docs)
+\newcommand{\actname}{Act}
+\newcommand{\scenename}{Scene}
 \newcommand{\continuedname}{Continued}
 \newcommand{\castname}{Cast of Characters}
 \newcommand{\theendname}{The End}
@@ -134,7 +136,7 @@
 		\ifthenelse{\value{actcounter} > 1}{\newpage}{}
 		\ifthenelse{\value{actcounter} = 1}{\doublespace}{}
 		\stepcounter{actcounter}
-		\textsc{Act} \Roman{actcounter}
+		\textsc{\actname} \Roman{actcounter}
 	\end{changemargin}
 	\setcounter{page}{1}
 }
@@ -145,7 +147,7 @@
 	\begin{changemargin}{2.5in}{0in}
 		\stepcounter{scenecounter}
 		\ifthenelse{\value{scenecounter} > 1}{\newpage}{}
-		\textsc{Scene} \arabic{scenecounter}
+		\textsc{\scenename} \arabic{scenecounter}
 		\ifthenelse{\value{scenecounter} = 1}{\doublespace}{}
 	\end{changemargin}
 }
