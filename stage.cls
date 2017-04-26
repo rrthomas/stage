@@ -93,10 +93,6 @@
 \newcounter{actcounter}
 % We need to initialize actcounter for page numbering.
 \setcounter{actcounter}{0}
-% pagestyle and headers
-% \thepage does page numbering.
-%
-%\renewcommand{\thepage}{\arabic{page}}%
 
 % Counts scenes per act
 \newcounter{scenecounter}[actcounter]
