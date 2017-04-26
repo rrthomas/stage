@@ -2,6 +2,9 @@
 %% Copyright 2005 Robert Jahrling
 %% Copyright 2017 Reuben Thomas
 %
+% This is a LaTeX2e class called stage, providing a class
+% for stage play Manuscript Format.
+%
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
 % of this license or (at your option) any later version.
@@ -25,11 +28,6 @@
 % TODO:
 %	Time/setting page
 %	Character s.d. spacing is not the greatest.
-%
-% Required: 
-%
-% This is a LaTeX2e class called stage, providing a class
-% for stage play Manuscript Format.
 %
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{stage}[2017/04/25 Manuscript Format for stage plays]
