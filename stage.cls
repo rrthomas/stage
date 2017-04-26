@@ -103,13 +103,15 @@
 % An environment for specifying margin changes
 \newenvironment{changemargin}[2]{%
 	\begin{list}{}{%
+	    % Without the following critical setting, we could use
+	    % changepage’s adjustwidth environment
+		\setlength{\partopsep}{0pt}%
 		\setlength{\topsep}{0pt}%
 		\setlength{\leftmargin}{#1}%
 		\setlength{\rightmargin}{#2}%
 		\setlength{\listparindent}{\parindent}%
 		\setlength{\itemindent}{\parindent}%
 		\setlength{\parsep}{\parskip}%
-		\setlength{\partopsep}{0pt}%
 		}%
 	\item[]}{\end{list}}
 % \dialog sets the character's name above their speech
