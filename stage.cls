@@ -151,12 +151,8 @@
 		\ifthenelse{\value{scenecounter} = 1}{\doublespace}{}
 	\end{changemargin}
 }
-% \stage sets the stage directions a little farther in than the
-% dialog box and parenthesizes them.
-%
-% I'm not happy with this; I'd rather not have to put braces
-% around the stage directions, but it seems like there's no
-% way around it.
+% \stage sets the stage directions farther in than the box
+% containing the dialog, and parenthesizes them.
 \newcommand{\stage}[1]{%
 	\doublespace
 	\begin{changemargin}{2in}{0in}
