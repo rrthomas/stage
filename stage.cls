@@ -166,6 +166,8 @@
 	\begin{changemargin}{2in}{0in}%
 		(#1)%
 	\end{changemargin}}
+% Undocumented, for backwards compatibility
+\newcommand{\initsd}[1]{\charsd{#1}}
 
 % \pause is just convenient.
 \newcommand{\pause}{\stage{Pause.}}
