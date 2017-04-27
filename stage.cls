@@ -23,7 +23,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{stage}[2017/04/25 Manuscript Format for stage plays]
+\ProvidesClass{stage}[2017/04/25 v1.00 Manuscript Format for stage plays]
 % The class is based on the default book class
 \LoadClass[12pt,oneside]{book}
 \PassOptionsToClass{\CurrentOption}{book}
