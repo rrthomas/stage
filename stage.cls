@@ -21,14 +21,7 @@
 %
 % See https://github.com/rrthomas/stage or contact me at rrt@sc3d.org
 %
-% CHANGES NEEDED 5/16/2003:
-%   Fix Margins
-%   Fix Widows/Orphans
-%
-% TODO:
-%	Time/setting page
-%	Character s.d. spacing is not the greatest.
-%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{stage}[2017/04/25 Manuscript Format for stage plays]
 % The class is based on the default book class
