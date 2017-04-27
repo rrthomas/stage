@@ -19,6 +19,10 @@ Why have \texttt{stage} then? \TeX\ produces very nice output, and while it woul
 
 If you want to write screenplays, I suggest you look at Adrian McCarthy’s Script\TeX\footnote{http://www.aidtopia.com/software/scripttex/}. It’s a great screenplay tool, and Adrian, being much smarter than me, took care of a lot of hairy stuff that I barely understand. However, and I say this very respectfully, Script\TeX’s stage play mode is not correct\footnote{Script\TeX’s stage play mode produces scripts designed for reading, not production.}.
 
+\section{Changes in version 1.00}
+
+Since the previous release, which had no version number, dated 2003/05/15, the \verb|quotepage| environment has been removed, as well as the \verb|\copyrightnotice| and \verb|\draft| commands. These are either contrary to standard advice on scriptwriting (as acknowledged in their documentation) or can easily be implemented with standard \LaTeX\. The command \verb|\initsd| is no longer necessary (\verb|\charsd| may be used instead), but is still defined for backward compatibility.
+
 \section{Manuscript Format}
 
 \texttt{stage} is a \LaTeX2e\ class designed to produce correctly-formatted stage plays for production and for submission to literary agents and competitions. Recognize, however, that “correct” isn’t nearly as rigidly defined in the theater world as it is in Hollywood. For the stage, it is usually sufficient that your script look good\,—\,nobody will be holding a ruler to your manuscript.
