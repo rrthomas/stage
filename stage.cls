@@ -133,12 +133,13 @@
 %
 % Start a new page for each scene except the first
 \newcommand{\scene}{%
-	\begin{changemargin}{2.5in}{0in}
-		\stepcounter{scenecounter}
-		\ifthenelse{\value{scenecounter} > 1}{\newpage}{}
-		\textsc{\scenename} \arabic{scenecounter}
-		\ifthenelse{\value{scenecounter} = 1}{\doublespace}{}
-	\end{changemargin}
+  \extramarks{}{}%
+  \begin{changemargin}{2.5in}{0in}
+    \stepcounter{scenecounter}
+    \ifthenelse{\value{scenecounter} > 1}{\newpage}{}
+    \textsc{\scenename} \arabic{scenecounter}
+    \ifthenelse{\value{scenecounter} = 1}{\doublespace}{}
+  \end{changemargin}
 }
 % \stage sets the stage directions farther in than the box
 % containing the dialog, and parenthesizes them.
