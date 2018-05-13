@@ -1,6 +1,6 @@
 %% stage.cls
 %% Copyright 2005 Robert Jahrling
-%% Copyright 2017 Reuben Thomas
+%% Copyright 2017–2018 Reuben Thomas
 %
 % This is a LaTeX2e class called stage, providing a class
 % for stage play Manuscript Format.
@@ -32,6 +32,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{extramarks}
 \RequirePackage{needspace}
+\RequirePackage{changepage}
 % These three commands are required.
 % The default font size is 12/14. It looks better than 12 solid.
 % The textwidth and textheight represent one-inch margins all
@@ -71,13 +72,8 @@
 \renewcommand{\headheight}{14pt}
 %%%
 
-% No indentation. Double space between paragraphs.
-\parindent 0pt
-\parskip 0pt
-\newlength{\doublespacelength}
-\setlength{\doublespacelength}{1.6ex}
-% \doublespace leaves a line's worth of space between elements.
-\newcommand{\doublespace}{\vspace{\doublespacelength}}
+% No indentation; space between paragraphs.
+\usepackage{parskip}
 % \introduce is used the first time we meet a character.
 \newcommand{\introduce}[1]{\textsc{#1}}
 % \address is used for the writer's address
@@ -89,28 +85,15 @@
 
 % Counts scenes per act
 \newcounter{scenecounter}[actcounter]
-% An environment for specifying margin changes
-\newenvironment{changemargin}[2]{%
-	\begin{list}{}{%
-	    % Without the following critical setting, we could use
-	    % changepage’s adjustwidth environment
-		\setlength{\partopsep}{0pt}%
-		\setlength{\topsep}{0pt}%
-		\setlength{\leftmargin}{#1}%
-		\setlength{\rightmargin}{#2}%
-		\setlength{\listparindent}{\parindent}%
-		\setlength{\itemindent}{\parindent}%
-		\setlength{\parsep}{\parskip}%
-		}%
-	\item[]}{\end{list}}
 % \dialog sets the character's name above their speech
+\let\stageoldep=\everypar
+\newlength{\saveparskip}
 \newcommand{\dialog}[2]{%
-  \doublespace%
   \needspace{2\baselineskip}%
-  \begin{changemargin}{2.5in}{0in}\textsc{#1}\end{changemargin}%
+  {\begin{adjustwidth}{2.5in}{0in}\textsc{#1}\end{adjustwidth}\saveparskip=\parskip\parskip=0pt%
   \extramarks{}{}%
-  #2%
-  \extramarks{\textsc{#1} (\continuedname)}{}
+  {\begin{adjustwidth}{0in}{0in}\def\everypar{\parskip=\saveparskip\stageoldep}#2\end{adjustwidth}}%
+  \extramarks{\textsc{#1} (\continuedname)}{}}
 }
 
 % \dialogue, for people who like that spelling better
@@ -162,9 +145,9 @@
 % \opensd is opening stage directions, set differently from
 % other stage directions; \opensd sets time and place.
 \newcommand{\opensd}[1]{%
-	\begin{changemargin}{2.5in}{0in}
+	\begin{adjustwidth}{2.5in}{0in}
 		(#1)%
-	\end{changemargin}
+	\end{adjustwidth}
 }
 % \open is the same as \opensd
 \newcommand{\open}[1]{\opensd{#1}}
@@ -176,9 +159,9 @@
 		\par
 		\center{\@author}
 		\vspace{5in}
-		\begin{changemargin}{0in}{0in}
+		\begin{adjustwidth}{0in}{0in}
 			\ifthenelse{\not\isundefined{\@address}}{\@address}{}
-		\end{changemargin}
+		\end{adjustwidth}
 	\end{titlepage}
 	\setcounter{page}{1}
 }
@@ -188,21 +171,20 @@
 	\thispagestyle{empty}%
 	\center{\textsc{\castname}}%
 	\vspace{3ex}%
-	\begin{changemargin}{0in}{0.5in}%
+	\begin{adjustwidth}{0in}{0.5in}%
 	}{%
-	\end{changemargin}%
+	\end{adjustwidth}%
 	\setcounter{page}{0}%
 	\newpage%
 }
 % \addcharacter adds characters to the cast page.
 \newcommand{\addcharacter}[2]{%
 	\begin{tabular}[2]{p{2in} p{4in}}
-		\textsc{#1} & #2\\[\doublespacelength]
+		\textsc{#1} & #2\\[\parskip]
 	\end{tabular}
 }
 % Mark the end of the document.
 \AtEndDocument{%
-		\doublespace %
 		\hskip 2.5in %
 		\textsc{\theendname}%
 }
