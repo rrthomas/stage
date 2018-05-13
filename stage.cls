@@ -130,9 +130,7 @@
 % of dialog.
 \newcommand{\charsd}[1]{%
 	{\def\everypar{\parskip=0pt\stageoldep}%
-	\begin{adjustwidth}{2in}{0in}%
-		(#1)%
-	\end{adjustwidth}\par\leavevmode}}
+	\stage{#1}\par\leavevmode}}
 % Undocumented, for backwards compatibility
 \newcommand{\initsd}[1]{\charsd{#1}}
 
