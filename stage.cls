@@ -121,41 +121,35 @@
 % Start a new page for each Act except the first
 \newcommand{\act}{%
   \renewcommand{\thepage}{\Roman{actcounter}-\arabic{page}}%
-	\begin{changemargin}{2.5in}{0in}
-		\ifthenelse{\value{actcounter} > 1}{\newpage}{}
-		\ifthenelse{\value{actcounter} = 1}{\doublespace}{}
-		\stepcounter{actcounter}
-		\textsc{\actname} \Roman{actcounter}
-	\end{changemargin}
-	\setcounter{page}{1}
+  \ifthenelse{\value{actcounter} > 1}{\newpage}{\vspace{\parskip}}
+  \stepcounter{actcounter}
+  \hspace*{2.5in}\textsc{\actname} \Roman{actcounter}%
+  \setcounter{page}{1}
 }
 % \scene creates a scene header, with arabic numerals
 %
 % Start a new page for each scene except the first
 \newcommand{\scene}{%
   \extramarks{}{}%
-  \begin{changemargin}{2.5in}{0in}
-    \stepcounter{scenecounter}
-    \ifthenelse{\value{scenecounter} > 1}{\newpage}{}
-    \textsc{\scenename} \arabic{scenecounter}
-    \ifthenelse{\value{scenecounter} = 1}{\doublespace}{}
-  \end{changemargin}
+  \stepcounter{scenecounter}
+  \ifthenelse{\value{scenecounter} > 1}{\newpage}{\vspace{\parskip}}
+  \hspace*{2.5in}\textsc{\scenename} \arabic{scenecounter}%
 }
 % \stage sets the stage directions farther in than the box
 % containing the dialog, and parenthesizes them.
 \newcommand{\stage}[1]{%
-	\doublespace
-	\begin{changemargin}{2in}{0in}
+	\begin{adjustwidth}{2in}{0in}
 		(#1)%
-	\end{changemargin}
+	\end{adjustwidth}
 }
 % \charsd is like \paren in ScriptTeX, used for brief character
 % stage directions. It's intended to set properly into a passage
 % of dialog.
 \newcommand{\charsd}[1]{%
-	\begin{changemargin}{2in}{0in}%
+	{\def\everypar{\parskip=0pt\stageoldep}%
+	\begin{adjustwidth}{2in}{0in}%
 		(#1)%
-	\end{changemargin}}
+	\end{adjustwidth}\par\leavevmode}}
 % Undocumented, for backwards compatibility
 \newcommand{\initsd}[1]{\charsd{#1}}
 
