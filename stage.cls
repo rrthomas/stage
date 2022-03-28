@@ -86,13 +86,12 @@
 % Counts scenes per act
 \newcounter{scenecounter}[actcounter]
 % \dialog sets the character's name above their speech
-\let\stageoldep=\everypar
 \newlength{\saveparskip}
 \newcommand{\dialog}[2]{%
   \needspace{2\baselineskip}%
-  {\begin{adjustwidth}{2.5in}{0in}\textsc{#1}\end{adjustwidth}\saveparskip=\parskip\parskip=0pt%
+  {\begin{adjustwidth}{2.5in}{0in}\textsc{#1}\saveparskip=\parskip\parskip=0pt\end{adjustwidth}%
   \extramarks{}{}%
-  {\begin{adjustwidth}{0in}{0in}\def\everypar{\parskip=\saveparskip\stageoldep}#2\end{adjustwidth}}%
+  {\begin{adjustwidth}{0in}{0in}\parskip=\saveparskip#2\end{adjustwidth}}%
   \extramarks{\textsc{#1} (\continuedname)}{}}
 }
 
@@ -121,16 +120,16 @@
 % \stage sets the stage directions farther in than the box
 % containing the dialog, and parenthesizes them.
 \newcommand{\stage}[1]{%
-	\begin{adjustwidth}{2in}{0in}
+	\begin{adjustwidth}{2in}{0in}%
 		(#1)%
-	\end{adjustwidth}
+	\end{adjustwidth}%
 }
 % \charsd is like \paren in ScriptTeX, used for brief character
 % stage directions. It's intended to set properly into a passage
 % of dialog.
 \newcommand{\charsd}[1]{%
-	{\def\everypar{\parskip=0pt\stageoldep}%
-	\stage{#1}\par\leavevmode}}
+	\parskip=0pt%
+	\stage{#1}\par\leavevmode\parskip=\saveparskip}
 % Undocumented, for backwards compatibility
 \newcommand{\initsd}[1]{\charsd{#1}}
 
