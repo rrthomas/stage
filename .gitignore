@@ -1,5 +1,7 @@
 *.log
 *.aux
 *.cpt
+*.fdb_latexmk
+*.fls
 *.pdf
 *.synctex.gz
