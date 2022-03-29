@@ -1,6 +1,6 @@
 %% stage.cls
 %% Copyright 2005 Robert Jahrling
-%% Copyright 2017–2018 Reuben Thomas
+%% Copyright 2017–2022 Reuben Thomas
 %
 % This is a LaTeX2e class called stage, providing a class
 % for stage play Manuscript Format.
@@ -23,7 +23,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{stage}[2018/05/14 v1.02 Manuscript Format for stage plays]
+\ProvidesClass{stage}[2022/03/29 v1.03 Manuscript Format for stage plays]
 % The class is based on the default book class
 \LoadClass[12pt,oneside]{book}
 \PassOptionsToClass{\CurrentOption}{book}
